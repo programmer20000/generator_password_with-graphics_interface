@@ -45,7 +45,7 @@ class App(Tk):
     def __init__(self):
         super().__init__()
 
-        self.title("Window")
+        self.title("generator password".upper())
         self.geometry("250x200")
         self.resizable(False, False)
 
