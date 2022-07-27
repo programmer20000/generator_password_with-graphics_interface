@@ -1,7 +1,6 @@
 from random import randint
 from tkinter import *
 from tkinter.messagebox import showinfo
-
 from symbols_for_password import symbols_for_password
 
 
