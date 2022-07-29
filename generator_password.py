@@ -1,5 +1,6 @@
-from random import randint
 from tkinter import *
+from time import sleep
+from random import randint
 from tkinter.messagebox import showinfo
 from symbols_for_password import symbols_for_password
 
@@ -13,18 +14,18 @@ class Window(Frame):
         self.label_information = Label(window, text="Enter count symbol for password", font=("Arial", 10))
         self.label_information.pack(pady=6)
 
-
         self.count_symbol_for_password_filed = Entry(window, width=20)
+
         self.count_symbol_for_password_filed.pack(pady=10)
 
         self.label_information = Button(window, text="generate password", command=self.generator_password,
                                         font=("Arial", 10))
         self.label_information.pack(pady=6)
 
-
     def generator_password(self):
         try:
             self.get_value_from_input_box = int(self.count_symbol_for_password_filed.get())
+
             self.password = ''
 
             if self.get_value_from_input_box > len(symbols_for_password):
@@ -33,7 +34,7 @@ class Window(Frame):
             for i in range(self.get_value_from_input_box):
                 self.password = f'{self.password}{symbols_for_password[randint(0, len(symbols_for_password) - 1)]}'
 
-                with open(file="save_password.txt",mode="w") as file:
+                with open(file="save_password.txt", mode="w") as file:
                     file.write(self.password)
 
 
