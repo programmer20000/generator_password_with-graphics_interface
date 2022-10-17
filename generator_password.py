@@ -11,14 +11,14 @@ class Window(Frame):
 
         self.password = ''
 
-        self.show_copy = StringVar()
+        self.show_password = StringVar()
 
 
         self.label_information = Label(window, text='Enter count symbol for password', font=('Arial', 10))
         self.label_information.pack(pady=6)
 
         self.count_symbol_for_password_filed = Entry(window, width=20)
-        self.label_copy_password = Entry(window, width=20,state='readonly',textvariable=self.copy)
+        self.label_copy_password = Entry(window, width=20,state='readonly',textvariable=self.show_password)
 
         self.count_symbol_for_password_filed.pack(pady=10)
         self.label_copy_password.pack(pady=12)
@@ -46,8 +46,9 @@ class Window(Frame):
 
             for i in range(self.get_value_from_input_box):
                 self.password = f'{self.password}{symbols_for_password[randint(0, len(symbols_for_password) - 1)]}'
-            self.show_copy.set(self.password)
+            self.show_password.set(self.password)
             pyperclip.copy(self.password)
+            showinfo('Message', 'Successful copycatted password')
 
         except Exception as exception:
             showinfo('Message', 'Please Enter only number')
